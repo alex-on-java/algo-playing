@@ -1,16 +1,16 @@
-package ru.buyanov.study.coursera;
+package ru.buyanov.study.algo;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ru.buyanov.study.algo.ArrayUnderThreshold;
 
+import static java.lang.Integer.*;
 import static org.junit.Assert.assertEquals;
 
 /**
  * @author A.Buyanov 02.06.2016.
  */
 public class ArrayUnderThresholdTest {
-    public static final int PLACEHOLDER = -1;
     ArrayUnderThreshold s;
 
     @Before
@@ -56,6 +56,24 @@ public class ArrayUnderThresholdTest {
     @Test
     public void testOneElementInEachEighth() {
         assertEquals(12, s.calc(new int[]{2,4,6,8,10,12,14,16}, 17));
+    }
+
+    @Test
+    public void testAllDuplicates() {
+        assertEquals(0, s.calc(new int[]{5,5,5,5,5,5,5}, 12));
+    }
+
+    @Test
+    public void testAllDuplicatesExceptOne() {
+        assertEquals(1, s.calc(new int[]{5,5,5,4,5,5,5}, 12));
+    }
+
+    @Test
+    public void testBorders() {
+        int[] arr = {MIN_VALUE, MIN_VALUE, MIN_VALUE + 1, 0, MAX_VALUE - 1, MAX_VALUE, MAX_VALUE};
+        assertEquals(2, s.calc(arr, MIN_VALUE));
+        assertEquals(7, s.calc(arr, 0));
+        assertEquals(9, s.calc(arr, MAX_VALUE));
     }
 
     /*
