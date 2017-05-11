@@ -44,21 +44,26 @@ public class PalindromeTest {
 
     @Test
     public void testCheck_palindromeOddSymbols() {
-        assertTrue(palindrome.check("Madam, I’m Adam"));
+        assertTrue(palindrome.check("abcdcba"));
     }
 
     @Test
     public void testCheck_palindromeEvenSymbols() {
-        assertTrue(palindrome.check("Sum summus mus"));
+        assertTrue(palindrome.check("sum summus mus"));
     }
 
     @Test
     public void testCheck_palindromeWithMaxLength() {
-        assertTrue(palindrome.check("Saippuakivikauppias"));
+        assertTrue(palindrome.check("saippuakivikauppias"));
     }
 
     @Test
     public void testCheck_palindromeOfNumbers() {
         assertTrue(palindrome.check("12345654321"));
+    }
+
+    @Test
+    public void testCheck_notPalindromeInTheMiddle() {
+        assertFalse(palindrome.check("123456754321"));
     }
 }
